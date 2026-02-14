@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 
 export function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T) => void] {
   const [storedValue, setStoredValue] = useState<T>(initialValue);
-  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     try {
@@ -15,7 +14,6 @@ export function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T)
     } catch (error) {
       console.error(error);
     }
-    setIsInitialized(true);
   }, [key]);
 
   const setValue = (value: T) => {
