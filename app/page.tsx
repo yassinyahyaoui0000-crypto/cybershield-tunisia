@@ -24,34 +24,6 @@ export default function Home() {
       description: 'افحص الروابط والرسائل للكشف عن التهديدات المحتملة',
       color: 'from-purple-500 to-purple-700',
     },
-    {
-      href: '/privacy',
-      icon: '🔐',
-      title: 'حارس الخصوصية',
-      description: 'قيّم مستوى أمانك الرقمي واحصل على توصيات مخصصة',
-      color: 'from-green-500 to-green-700',
-    },
-    {
-      href: '/threats',
-      icon: '📡',
-      title: 'موجز التهديدات',
-      description: 'تابع آخر التهديدات النشطة في تونس وشارك في حماية المجتمع',
-      color: 'from-red-500 to-red-700',
-    },
-    {
-      href: '/learn',
-      icon: '📚',
-      title: 'دليل الحماية',
-      description: 'تعلم أساسيات الأمن السيبراني من خلال دروس قصيرة وتفاعلية',
-      color: 'from-yellow-500 to-yellow-700',
-    },
-    {
-      href: '/emergency',
-      icon: '🆘',
-      title: 'الطوارئ',
-      description: 'دليل شامل للتصرف في حالة تعرضك للاحتيال أو الاختراق',
-      color: 'from-orange-500 to-orange-700',
-    },
   ];
 
   const stats = [
@@ -140,18 +112,6 @@ export default function Home() {
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
             معاً نبني مجتمعاً رقمياً أكثر أماناً لجميع التونسيين
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/threats">
-              <Button size="lg" variant="primary">
-                📡 شاهد التهديدات الحالية
-              </Button>
-            </Link>
-            <Link href="/learn">
-              <Button size="lg" variant="success">
-                📚 ابدأ التعلم الآن
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 
