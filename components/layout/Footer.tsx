@@ -26,10 +26,6 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><Link href="/simulator" className="text-gray-400 hover:text-white transition-colors">محاكي التهديدات</Link></li>
               <li><Link href="/scanner" className="text-gray-400 hover:text-white transition-colors">الماسح الذكي</Link></li>
-              <li><Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">حارس الخصوصية</Link></li>
-              <li><Link href="/threats" className="text-gray-400 hover:text-white transition-colors">موجز التهديدات</Link></li>
-              <li><Link href="/learn" className="text-gray-400 hover:text-white transition-colors">دليل الحماية</Link></li>
-              <li><Link href="/emergency" className="text-gray-400 hover:text-white transition-colors">الطوارئ</Link></li>
             </ul>
           </div>
 

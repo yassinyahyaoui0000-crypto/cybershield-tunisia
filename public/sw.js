@@ -3,10 +3,6 @@ const urlsToCache = [
   '/',
   '/simulator',
   '/scanner',
-  '/privacy',
-  '/threats',
-  '/learn',
-  '/emergency',
 ];
 
 self.addEventListener('install', (event) => {

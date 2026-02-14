@@ -32,10 +32,6 @@ export default function Navbar() {
     { href: '/', label: 'الرئيسية' },
     { href: '/simulator', label: 'محاكي التهديدات' },
     { href: '/scanner', label: 'الماسح الذكي' },
-    { href: '/privacy', label: 'حارس الخصوصية' },
-    { href: '/threats', label: 'موجز التهديدات' },
-    { href: '/learn', label: 'دليل الحماية' },
-    { href: '/emergency', label: 'الطوارئ' },
   ];
 
   return (
