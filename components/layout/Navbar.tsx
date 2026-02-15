@@ -41,7 +41,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
               <span className="text-3xl">🛡️</span>
-              <span className="text-xl font-bold text-primary">CyberShield Tunisia</span>
+              <span className="text-xl font-bold text-gray-700 dark:text-gray-300">CyberShield Tunisia</span>
             </Link>
           </div>
 
