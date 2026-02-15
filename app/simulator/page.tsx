@@ -42,42 +42,46 @@ export default function SimulatorPage() {
   }
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-4">🎮 محاكي التهديدات</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
-            تعلم كيفية التعرف على التهديدات السيبرانية من خلال سيناريوهات واقعية تونسية
-          </p>
+    <div className="min-h-screen">
+      {/* Hero Section with Cyber Gradient */}
+      <section className="cyber-gradient-bg text-white py-16 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center animate-fadeIn">
+            <h1 className="text-5xl font-bold mb-4 text-primary drop-shadow-lg">🎮 محاكي التهديدات</h1>
+            <p className="text-xl text-text-primary mb-8">
+              تعلم كيفية التعرف على التهديدات السيبرانية من خلال سيناريوهات واقعية تونسية
+            </p>
+          </div>
         </div>
+      </section>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* User Stats */}
         <Card className="mb-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="text-5xl mb-2">⭐</div>
               <div className="text-3xl font-bold text-primary">{progress.totalPoints}</div>
-              <div className="text-gray-600 dark:text-gray-400">نقاط الحماية</div>
+              <div className="text-text-secondary">نقاط الحماية</div>
             </div>
             <div className="text-center">
               <div className="text-5xl mb-2">🏆</div>
-              <div className="text-3xl font-bold text-primary">{progress.level}</div>
-              <div className="text-gray-600 dark:text-gray-400">المستوى</div>
+              <div className="text-3xl font-bold text-success">{progress.level}</div>
+              <div className="text-text-secondary">المستوى</div>
             </div>
             <div className="text-center">
               <div className="text-5xl mb-2">✅</div>
-              <div className="text-3xl font-bold text-primary">
+              <div className="text-3xl font-bold text-warning">
                 {progress.completedScenarios.length}/{scenarios.length}
               </div>
-              <div className="text-gray-600 dark:text-gray-400">السيناريوهات المكتملة</div>
+              <div className="text-text-secondary">السيناريوهات المكتملة</div>
             </div>
             <div className="text-center">
               <div className="text-5xl mb-2">🎯</div>
               <div className="text-3xl font-bold text-primary">
                 {Math.round((progress.completedScenarios.length / scenarios.length) * 100)}%
               </div>
-              <div className="text-gray-600 dark:text-gray-400">نسبة الإنجاز</div>
+              <div className="text-text-secondary">نسبة الإنجاز</div>
             </div>
           </div>
           <div className="mt-6">
@@ -112,8 +116,8 @@ export default function SimulatorPage() {
         </div>
 
         {/* Tips Section */}
-        <Card className="mt-12 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20">
-          <h3 className="text-2xl font-bold mb-4">💡 نصائح عامة للحماية:</h3>
+        <Card className="mt-12 bg-primary/5 border-primary/20">
+          <h3 className="text-2xl font-bold mb-4 text-primary">💡 نصائح عامة للحماية:</h3>
           <ul className="space-y-3 text-lg">
             <li className="flex items-start gap-2">
               <span>🔐</span>

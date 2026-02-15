@@ -12,17 +12,17 @@ export default function ThreatLevel({ level, className }: ThreatLevelProps) {
     safe: {
       icon: '✅',
       text: 'آمن',
-      color: 'text-success bg-green-100 dark:bg-green-900',
+      color: 'text-success bg-success/10 border border-success/30 neon-glow-green',
     },
     suspicious: {
       icon: '⚠️',
       text: 'مشبوه',
-      color: 'text-warning bg-orange-100 dark:bg-orange-900',
+      color: 'text-warning bg-warning/10 border border-warning/30 neon-glow-yellow',
     },
     dangerous: {
       icon: '🚫',
       text: 'خطير',
-      color: 'text-danger bg-red-100 dark:bg-red-900',
+      color: 'text-danger bg-danger/10 border border-danger/30 neon-glow-pink',
     },
   };
 

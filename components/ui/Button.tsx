@@ -18,14 +18,14 @@ export default function Button({
   className,
   ...props
 }: ButtonProps) {
-  const baseClasses = 'font-semibold rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'font-semibold rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed border';
   
   const variantClasses = {
-    primary: 'bg-primary hover:bg-primary-dark text-white',
-    secondary: 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white',
-    success: 'bg-success hover:bg-success-dark text-white',
-    danger: 'bg-danger hover:bg-danger-dark text-white',
-    warning: 'bg-warning hover:bg-warning-dark text-white',
+    primary: 'bg-primary hover:bg-primary-dark text-surface-dark border-primary/30 neon-glow-cyan',
+    secondary: 'bg-success hover:bg-success-dark text-surface-dark border-success/30 neon-glow-green',
+    success: 'bg-success hover:bg-success-dark text-surface-dark border-success/30 neon-glow-green',
+    danger: 'bg-danger hover:bg-danger-dark text-white border-danger/30 neon-glow-pink',
+    warning: 'bg-warning hover:bg-warning-dark text-surface-dark border-warning/30 neon-glow-yellow',
   };
 
   const sizeClasses = {

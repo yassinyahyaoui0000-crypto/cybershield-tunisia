@@ -10,29 +10,63 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Cybersecurity-themed neon color palette
         primary: {
-          DEFAULT: '#1e40af',
-          light: '#3b82f6',
-          dark: '#1e3a8a',
+          DEFAULT: '#00d9ff', // Neon cyan
+          light: '#5df4ff',
+          dark: '#0099cc',
         },
         success: {
-          DEFAULT: '#16a34a',
-          light: '#22c55e',
-          dark: '#15803d',
+          DEFAULT: '#00ff88', // Neon green
+          light: '#5dffb3',
+          dark: '#00cc6a',
         },
         warning: {
-          DEFAULT: '#ea580c',
-          light: '#f97316',
-          dark: '#c2410c',
+          DEFAULT: '#ffcc00', // Neon yellow
+          light: '#ffe066',
+          dark: '#cc9900',
         },
         danger: {
-          DEFAULT: '#dc2626',
-          light: '#ef4444',
-          dark: '#991b1b',
+          DEFAULT: '#ff0055', // Neon pink/red
+          light: '#ff5588',
+          dark: '#cc0044',
+        },
+        // Surface colors for cards/panels
+        surface: {
+          light: '#ffffff',
+          dark: '#0a0e1a', // Deep dark blue
+          'dark-elevated': '#121829', // Slightly lighter for cards
+        },
+        // Text colors
+        text: {
+          primary: '#e5e7eb', // Light gray for dark backgrounds
+          secondary: '#9ca3af', // Muted gray
+          dark: '#1f2937', // Dark text for light backgrounds
+        },
+        // Glow effects
+        glow: {
+          cyan: 'rgba(0, 217, 255, 0.5)',
+          green: 'rgba(0, 255, 136, 0.5)',
+          yellow: 'rgba(255, 204, 0, 0.5)',
+          pink: 'rgba(255, 0, 85, 0.5)',
         },
       },
       fontFamily: {
         arabic: ['Cairo', 'Noto Sans Arabic', 'sans-serif'],
+      },
+      // Cyber gradient animations
+      animation: {
+        'cyber-gradient': 'cyber-gradient 15s ease infinite',
+      },
+      keyframes: {
+        'cyber-gradient': {
+          '0%, 100%': {
+            'background-position': '0% 50%',
+          },
+          '50%': {
+            'background-position': '100% 50%',
+          },
+        },
       },
     },
   },
