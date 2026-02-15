@@ -122,26 +122,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      {progress.totalPoints > 0 && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10">
-          <Card>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="flex justify-center">
-                <ScoreGauge score={progress.totalPoints} maxScore={progress.level * 100} />
-              </div>
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-4xl mb-2">{stat.icon}</div>
-                  <div className="text-3xl font-bold text-primary">{stat.value}</div>
-                  <div className="text-text-secondary">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </Card>
-        </section>
-      )}
-
       {/* Modules Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-4xl font-bold text-center mb-12">
@@ -164,7 +144,7 @@ export default function Home() {
                 aria-label={module.title}
               >
                 <Card hover className="h-full">
-                  <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${module.color} flex items-center justify-center text-3xl mb-4`}>
+                  <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${module.color} flex items-center justify-center text-3xl mb-4`}> 
                     {module.icon}
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{module.title}</h3>
@@ -174,7 +154,7 @@ export default function Home() {
             ) : (
               <Link key={index} href={module.href}>
                 <Card hover className="h-full">
-                  <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${module.color} flex items-center justify-center text-3xl mb-4 neon-glow-cyan`}>
+                  <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${module.color} flex items-center justify-center text-3xl mb-4 neon-glow-cyan`}> 
                     {module.icon}
                   </div>
                   <h3 className="text-2xl font-bold mb-2">{module.title}</h3>
@@ -265,7 +245,7 @@ export default function Home() {
       <section className="bg-surface-light dark:bg-surface-dark-elevated py-16 border-t border-primary/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
-            انضم إلى مجتمع الحماية السيبرانية التونسي
+            انضم إلى مجتمع الحماية السيبرانية التونس��
           </h2>
           <p className="text-xl text-text-secondary mb-8">
             معاً نبني مجتمعاً رقمياً أكثر أماناً لجميع التونسيين
