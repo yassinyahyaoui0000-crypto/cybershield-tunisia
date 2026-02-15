@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -11,6 +11,10 @@ export default function Home() {
   const { progress } = useScore();
   const vantaRef = useRef<HTMLElement>(null);
   const vantaEffect = useRef<any>(null);
+  
+  // Password strength state
+  const [password, setPassword] = useState('');
+  const [showPasswordHelper, setShowPasswordHelper] = useState(false);
 
   useEffect(() => {
     if (!vantaEffect.current && vantaRef.current) {
@@ -43,6 +47,55 @@ export default function Home() {
     };
   }, []);
 
+  // Password strength calculation
+  const calculatePasswordStrength = (pwd: string) => {
+    let score = 0;
+    const checks = {
+      length: pwd.length >= 8,
+      hasLower: /[a-z]/.test(pwd),
+      hasUpper: /[A-Z]/.test(pwd),
+      hasNumber: /[0-9]/.test(pwd),
+      hasSymbol: /[!@#$%^&*(),.?":{}|<>]/.test(pwd),
+    };
+    
+    // Length scoring
+    if (pwd.length >= 8) score += 20;
+    if (pwd.length >= 12) score += 10;
+    if (pwd.length >= 16) score += 10;
+    
+    // Character type scoring
+    if (checks.hasLower) score += 15;
+    if (checks.hasUpper) score += 15;
+    if (checks.hasNumber) score += 15;
+    if (checks.hasSymbol) score += 15;
+    
+    // Cap at 100
+    score = Math.min(score, 100);
+    
+    // Determine label and color
+    let label = 'ضعيفة';
+    let color = 'from-red-500 to-red-700';
+    if (score >= 70) {
+      label = 'قوية';
+      color = 'from-green-500 to-green-700';
+    } else if (score >= 40) {
+      label = 'متوسطة';
+      color = 'from-yellow-500 to-yellow-700';
+    }
+    
+    // Generate tips
+    const tips = [];
+    if (!checks.length) tips.push('استخدم 8 أحرف على الأقل');
+    if (!checks.hasLower) tips.push('أضف أحرفاً صغيرة (a-z)');
+    if (!checks.hasUpper) tips.push('أضف أحرفاً كبيرة (A-Z)');
+    if (!checks.hasNumber) tips.push('أضف أرقاماً (0-9)');
+    if (!checks.hasSymbol) tips.push('أضف رموزاً خاصة (!@#$%...)');
+    
+    return { score, label, color, tips };
+  };
+
+  const passwordStrength = calculatePasswordStrength(password);
+
   const modules = [
     {
       href: '/simulator',
@@ -58,6 +111,14 @@ export default function Home() {
       description: 'افحص الروابط والرسائل للكشف عن التهديدات المحتملة',
       color: 'from-purple-500 to-purple-700',
     },
+    {
+      href: '#',
+      icon: '🔒',
+      title: 'فاحص قوة كلمة المرور',
+      description: 'تحقق من قوة كلمة المرور واحصل على نصائح لتحسينها',
+      color: 'from-green-500 to-green-700',
+      onClick: () => setShowPasswordHelper(true),
+    },
   ];
 
   const stats = [
@@ -72,10 +133,10 @@ export default function Home() {
       <section ref={vantaRef} className="text-white py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center animate-fadeIn">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-300">
               🛡️ CyberShield Tunisia
             </h1>
-            <p className="text-2xl md:text-3xl mb-8">
+            <p className="text-2xl md:text-3xl mb-8 text-gray-400">
               حماية التونسيين من التهديدات السيبرانية
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -121,18 +182,117 @@ export default function Home() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {modules.map((module, index) => (
-            <Link key={index} href={module.href}>
-              <Card hover className="h-full">
-                <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${module.color} flex items-center justify-center text-3xl mb-4`}>
-                  {module.icon}
-                </div>
-                <h3 className="text-2xl font-bold mb-2">{module.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{module.description}</p>
-              </Card>
-            </Link>
+            module.onClick ? (
+              <div 
+                key={index} 
+                onClick={module.onClick}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    module.onClick?.();
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={module.title}
+              >
+                <Card hover className="h-full">
+                  <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${module.color} flex items-center justify-center text-3xl mb-4`}>
+                    {module.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">{module.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400">{module.description}</p>
+                </Card>
+              </div>
+            ) : (
+              <Link key={index} href={module.href}>
+                <Card hover className="h-full">
+                  <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${module.color} flex items-center justify-center text-3xl mb-4`}>
+                    {module.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">{module.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400">{module.description}</p>
+                </Card>
+              </Link>
+            )
           ))}
         </div>
       </section>
+
+      {/* Password Strength Helper */}
+      {showPasswordHelper && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <Card className="max-w-2xl mx-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-3xl font-bold">🔒 فاحص قوة كلمة المرور</h2>
+              <button
+                onClick={() => {
+                  setShowPasswordHelper(false);
+                  setPassword('');
+                }}
+                className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 text-2xl"
+              >
+                ✕
+              </button>
+            </div>
+            
+            <div className="space-y-6">
+              <div>
+                <label htmlFor="password" className="block text-lg font-semibold mb-2">
+                  أدخل كلمة المرور
+                </label>
+                <input
+                  id="password"
+                  type="text"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="اكتب كلمة المرور هنا..."
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                />
+              </div>
+
+              {password && (
+                <>
+                  <div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-lg font-semibold">القوة: {passwordStrength.label}</span>
+                      <span className="text-lg font-bold text-primary">{passwordStrength.score}%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 overflow-hidden">
+                      <div
+                        className={`h-full bg-gradient-to-r ${passwordStrength.color} transition-all duration-300`}
+                        style={{ width: `${passwordStrength.score}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  {passwordStrength.tips.length > 0 && (
+                    <div className="bg-blue-50 dark:bg-gray-700 p-4 rounded-lg">
+                      <h3 className="font-semibold mb-2 text-lg">💡 نصائح لتحسين قوة كلمة المرور:</h3>
+                      <ul className="space-y-1">
+                        {passwordStrength.tips.map((tip, index) => (
+                          <li key={index} className="text-gray-700 dark:text-gray-300">
+                            • {tip}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {passwordStrength.score === 100 && (
+                    <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg text-center">
+                      <div className="text-4xl mb-2">✅</div>
+                      <p className="font-bold text-green-700 dark:text-green-400 text-lg">
+                        ممتاز! كلمة المرور قوية جداً
+                      </p>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          </Card>
+        </section>
+      )}
 
       {/* Call to Action */}
       <section className="bg-gray-100 dark:bg-gray-800 py-16">

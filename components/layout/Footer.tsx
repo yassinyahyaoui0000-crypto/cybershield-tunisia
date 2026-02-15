@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+            <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-gray-400">
               <span className="text-2xl">🛡️</span>
               CyberShield Tunisia
             </h3>
