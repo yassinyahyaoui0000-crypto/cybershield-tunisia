@@ -97,7 +97,7 @@ export default function Home() {
       {/* Stats Section */}
       {progress.totalPoints > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10">
-          <Card className="bg-white dark:bg-gray-800">
+          <Card className="bg-blue dark:bg-gray-800">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="flex justify-center">
                 <ScoreGauge score={progress.totalPoints} maxScore={progress.level * 100} />
