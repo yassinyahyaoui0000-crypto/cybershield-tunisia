@@ -1,3 +1,4 @@
+```tsx
 'use client';
 
 import { useState } from 'react';
@@ -51,7 +52,7 @@ export default function Home() {
     }
     
     // Generate tips
-    const tips = [];
+    const tips = [] as string[];
     if (!checks.length) tips.push('استخدم 8 أحرف على الأقل');
     if (!checks.hasLower) tips.push('أضف أحرفاً صغيرة (a-z)');
     if (!checks.hasUpper) tips.push('أضف أحرفاً كبيرة (A-Z)');
@@ -68,7 +69,7 @@ export default function Home() {
       href: '/simulator',
       icon: '🎮',
       title: 'محاكي التهديدات',
-      description: 'تعلم كيفية التعرف على التهديدات السيبرانية من خلال سيناريوهات واقعية',
+      description: 'تع��م كيفية التعرف على التهديدات السيبرانية من خلال سيناريوهات واقعية',
       color: 'from-primary to-primary-dark',
     },
     {
@@ -118,6 +119,36 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
+
+            {/* Threat Awareness Summary in Arabic */}
+            <Card className="mt-10 max-w-4xl mx-auto bg-surface-light/80 dark:bg-surface-dark/70 border border-primary/20 text-text-dark dark:text-text-primary">
+              <div className="space-y-4 text-right">
+                <h3 className="text-3xl font-bold text-primary">ملخص ميزة التوعية بالتهديدات</h3>
+                <p className="text-lg">
+                  تسلّط هذه الميزة الضوء على أبرز المخاطر السيبرانية التي تمسّ المواطنين، وتعرضها بشكل واضح ومنظّم لرفع الوعي وتعزيز السلامة الرقمية.
+                </p>
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="text-xl font-semibold">التصيّد والرسائل النصية الاحتيالية (Phishing & SMS Scams)</h4>
+                    <p className="text-base text-text-secondary">
+                      رسائل احتيالية تنتحل صفة جهات موثوقة مثل البنوك أو الخدمات الحكومية لسرقة كلمات المرور أو البيانات المالية.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold">الاحتيال على وسائل التواصل الاجتماعي</h4>
+                    <p className="text-base text-text-secondary">
+                      عمليات احتيال عبر حسابات بائعين مزيفة أو حسابات مخترَقة وإعلانات مضلِّلة تستهدف المستخدمين عبر المنصات الاجتماعية.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold">ضعف بيانات الدخول (Weak Credentials)</h4>
+                    <p className="text-base text-text-secondary">
+                      مخاطر ناتجة عن إعادة استخدام كلمات المرور أو غياب المصادقة المتعددة العوامل (MFA)، ما يجعل الحسابات أسهل للاختراق.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -294,3 +325,4 @@ export default function Home() {
     </div>
   );
 }
+```
