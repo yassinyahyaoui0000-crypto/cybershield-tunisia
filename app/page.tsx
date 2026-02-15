@@ -28,7 +28,7 @@ export default function Home() {
           minWidth: 200.00,
           scale: 1.00,
           scaleMobile: 1.00,
-          color: 0x1d4ed8,
+          color: 0x504b96,
           backgroundColor: 0x151521
         });
       };
