@@ -16,9 +16,15 @@ export default function ScoreGauge({ score, maxScore = 100, size = 'md', classNa
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
   const getColor = (percent: number) => {
-    if (percent >= 80) return '#16a34a'; // green
-    if (percent >= 50) return '#ea580c'; // orange
-    return '#dc2626'; // red
+    if (percent >= 80) return '#00ff88'; // neon green
+    if (percent >= 50) return '#ffcc00'; // neon yellow
+    return '#ff0055'; // neon pink/red
+  };
+
+  const getGlowClass = (percent: number) => {
+    if (percent >= 80) return 'neon-glow-green';
+    if (percent >= 50) return 'neon-glow-yellow';
+    return 'neon-glow-pink';
   };
 
   const sizeClasses = {
@@ -28,7 +34,7 @@ export default function ScoreGauge({ score, maxScore = 100, size = 'md', classNa
   };
 
   return (
-    <div className={cn('relative', sizeClasses[size], className)}>
+    <div className={cn('relative', sizeClasses[size], getGlowClass(percentage), className)}>
       <svg className="transform -rotate-90 w-full h-full">
         <circle
           cx="50%"
@@ -37,7 +43,7 @@ export default function ScoreGauge({ score, maxScore = 100, size = 'md', classNa
           stroke="currentColor"
           strokeWidth="8"
           fill="transparent"
-          className="text-gray-200 dark:text-gray-700"
+          className="text-surface-dark-elevated dark:text-surface-dark"
         />
         <circle
           cx="50%"
@@ -53,8 +59,8 @@ export default function ScoreGauge({ score, maxScore = 100, size = 'md', classNa
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-3xl font-bold">{Math.round(score)}</span>
-        <span className="text-sm text-gray-600 dark:text-gray-400">من {maxScore}</span>
+        <span className="text-3xl font-bold" style={{ color: getColor(percentage) }}>{Math.round(score)}</span>
+        <span className="text-sm text-text-secondary">من {maxScore}</span>
       </div>
     </div>
   );

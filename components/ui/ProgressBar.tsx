@@ -14,14 +14,14 @@ export default function ProgressBar({ value, max = 100, className, showLabel = f
 
   return (
     <div className={cn('w-full', className)}>
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
+      <div className="w-full bg-surface-dark-elevated dark:bg-surface-dark rounded-full h-3 overflow-hidden border border-primary/20">
         <div
-          className="h-full bg-gradient-to-r from-primary to-primary-light transition-all duration-300"
+          className="h-full bg-gradient-to-r from-primary via-success to-primary transition-all duration-300 neon-glow-cyan"
           style={{ width: `${percentage}%` }}
         />
       </div>
       {showLabel && (
-        <div className="mt-1 text-sm text-gray-600 dark:text-gray-400 text-center">
+        <div className="mt-1 text-sm text-text-secondary text-center">
           {value} / {max}
         </div>
       )}

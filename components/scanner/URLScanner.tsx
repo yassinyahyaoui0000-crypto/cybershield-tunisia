@@ -52,7 +52,7 @@ export default function URLScanner() {
         </div>
 
         {/* Examples */}
-        <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+        <div className="mt-6 p-4 bg-primary/5 border border-primary/20 rounded-lg">
           <p className="font-semibold mb-2">جرّب هذه الأمثلة:</p>
           <div className="space-y-2">
             <button
@@ -85,9 +85,9 @@ export default function URLScanner() {
               <ThreatLevel level={result.verdict} />
             </div>
 
-            <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">الرابط المفحوص:</p>
-              <p className="font-mono text-sm break-all">{result.url}</p>
+            <div className="bg-surface-dark-elevated dark:bg-surface-dark p-4 rounded-lg border border-primary/10">
+              <p className="text-sm text-text-secondary mb-1">الرابط المفحوص:</p>
+              <p className="font-mono text-sm break-all text-primary">{result.url}</p>
             </div>
 
             <div>
@@ -95,14 +95,14 @@ export default function URLScanner() {
                 <h4 className="font-bold">درجة الأمان:</h4>
                 <span className="text-2xl font-bold">{result.score}/100</span>
               </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 overflow-hidden">
+              <div className="w-full bg-surface-dark-elevated dark:bg-surface-dark rounded-full h-4 overflow-hidden border border-primary/20">
                 <div
                   className={`h-full transition-all duration-500 ${
                     result.score >= 70
-                      ? 'bg-success'
+                      ? 'bg-success neon-glow-green'
                       : result.score >= 40
-                      ? 'bg-warning'
-                      : 'bg-danger'
+                      ? 'bg-warning neon-glow-yellow'
+                      : 'bg-danger neon-glow-pink'
                   }`}
                   style={{ width: `${result.score}%` }}
                 />
