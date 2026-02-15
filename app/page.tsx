@@ -71,7 +71,7 @@ export default function SimulatorPage() {
         {/* Threat Awareness Feature Summary */}
         <Card className="mb-10 bg-surface-grey text-text-primary">
           <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-primary">ميزة التوعية بالتهديدات – ملخص</h2>
+            <h2 className="text-3xl font-bold text-primary">ميزة التوعية بالتهديدات</h2>
             <p className="text-lg">
               تُسلط هذه الميزة الضوء على أكثر مخاطر الأمن السيبراني شيوعًا التي تؤثر على المواطنين، وتقدمها بتنسيق واضح ومنظم لتحسين الوعي العام والسلامة الرقمية..
             </p>
