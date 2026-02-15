@@ -71,27 +71,27 @@ export default function SimulatorPage() {
         {/* Threat Awareness Feature Summary */}
         <Card className="mb-10 bg-surface-grey text-text-primary">
           <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-primary">Threat Awareness Feature – Summary</h2>
+            <h2 className="text-3xl font-bold text-primary">ميزة التوعية بالتهديدات – ملخص</h2>
             <p className="text-lg">
-              This feature highlights the most common cybersecurity risks affecting citizens, presenting them in a clear and structured format to improve public awareness and digital safety.
+              تُسلط هذه الميزة الضوء على أكثر مخاطر الأمن السيبراني شيوعًا التي تؤثر على المواطنين، وتقدمها بتنسيق واضح ومنظم لتحسين الوعي العام والسلامة الرقمية..
             </p>
             <div className="space-y-3">
               <div>
-                <h4 className="text-xl font-semibold">Phishing &amp; SMS Scams</h4>
+                <h4 className="text-xl font-semibold">عمليات الاحتيال الإلكتروني عبر الرسائل النصية</h4>
                 <p className="text-base text-text-secondary">
-                  Fraudulent messages impersonating trusted entities such as banks or government services to steal sensitive information like passwords or financial data.
+                  رسائل احتيالية تنتحل صفة جهات موثوقة مثل البنوك أو الخدمات الحكومية لسرقة معلومات حساسة مثل كلمات المرور أو البيانات المالية.
                 </p>
               </div>
               <div>
-                <h4 className="text-xl font-semibold">Social Media Fraud</h4>
+                <h4 className="text-xl font-semibold">الاحتيال عبر وسائل التواصل الاجتماعي</h4>
                 <p className="text-base text-text-secondary">
-                  Scams involving fake seller profiles, hacked accounts, and deceptive marketplace listings targeting online users.
+                  عمليات احتيال تتضمن ملفات تعريف مزيفة للبائعين، وحسابات مخترقة، وقوائم مضللة في الأسواق الإلكترونية تستهدف مستخدمي الإنترنت.
                 </p>
               </div>
               <div>
-                <h4 className="text-xl font-semibold">Weak Credentials</h4>
+                <h4 className="text-xl font-semibold">مؤهلات ضعيفة</h4>
                 <p className="text-base text-text-secondary">
-                  Security risks caused by password reuse and the lack of multi-factor authentication (MFA), making accounts easier to compromise.
+                  المخاطر الأمنية الناجمة عن إعادة استخدام كلمات المرور وعدم وجود المصادقة متعددة العوامل (MFA)، مما يجعل اختراق الحسابات أسهل.
                 </p>
               </div>
             </div>
