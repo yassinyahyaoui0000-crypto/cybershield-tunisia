@@ -113,7 +113,7 @@ export default function Home() {
                 </Button>
               </Link>
               <Link href="/scanner">
-                <Button size="lg" className="bg-surface-grey-elevated text-primary hover:bg-surface-dark border border-primary/30 neon-glow-cyan">
+                <Button size="lg" className="bg-surface-grey-elevated text-primary hover:bg-surface-grey border border-primary/30 neon-glow-cyan">
                   افحص رابطاً مشبوهاً 🔍
                 </Button>
               </Link>
