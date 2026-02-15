@@ -183,7 +183,19 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {modules.map((module, index) => (
             module.onClick ? (
-              <div key={index} onClick={module.onClick}>
+              <div 
+                key={index} 
+                onClick={module.onClick}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    module.onClick?.();
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={module.title}
+              >
                 <Card hover className="h-full">
                   <div className={`w-16 h-16 rounded-lg bg-gradient-to-br ${module.color} flex items-center justify-center text-3xl mb-4`}>
                     {module.icon}
