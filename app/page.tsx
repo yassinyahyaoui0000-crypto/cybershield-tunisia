@@ -28,7 +28,7 @@ export default function Home() {
           minWidth: 200.00,
           scale: 1.00,
           scaleMobile: 1.00,
-          color: 0x00aaff,
+          color: 0x1d4ed8,
           backgroundColor: 0x151521
         });
       };
@@ -75,11 +75,8 @@ export default function Home() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               🛡️ CyberShield Tunisia
             </h1>
-            <p className="text-2xl md:text-3xl mb-4">
+            <p className="text-2xl md:text-3xl mb-8">
               حماية التونسيين من التهديدات السيبرانية
-            </p>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              تعلم • احمِ • شارك
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/simulator">
