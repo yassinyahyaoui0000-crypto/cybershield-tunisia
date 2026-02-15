@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -8,6 +9,39 @@ import { useScore } from '@/hooks/useScore';
 
 export default function Home() {
   const { progress } = useScore();
+  const vantaRef = useRef<HTMLElement>(null);
+  const vantaEffect = useRef<any>(null);
+
+  useEffect(() => {
+    if (!vantaEffect.current && vantaRef.current) {
+      const loadVanta = async () => {
+        const THREE = await import('three');
+        const VANTA = await import('vanta/dist/vanta.net.min');
+        
+        vantaEffect.current = (VANTA as any).default({
+          el: vantaRef.current,
+          THREE: THREE,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0x00aaff,
+          backgroundColor: 0x151521
+        });
+      };
+      
+      loadVanta();
+    }
+    
+    return () => {
+      if (vantaEffect.current) {
+        vantaEffect.current.destroy();
+      }
+    };
+  }, []);
 
   const modules = [
     {
@@ -63,8 +97,8 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary-light text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section ref={vantaRef} className="text-white py-20 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center animate-fadeIn">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               🛡️ CyberShield Tunisia
