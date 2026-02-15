@@ -85,7 +85,7 @@ export default function Home() {
                 </Button>
               </Link>
               <Link href="/scanner">
-                <Button size="lg" className="bg-white text-primary hover:bg-gray-100">
+                <Button size="lg" className="bg-black text-primary hover:bg-gray-100">
                   افحص رابطاً مشبوهاً 🔍
                 </Button>
               </Link>
