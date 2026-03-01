@@ -39,7 +39,7 @@ export default function SimulatorGame({ scenario, onComplete }: SimulatorGamePro
         
         // Check if game is over
         if (nextStep.choices.length === 0) {
-          onComplete(totalPoints + selectedChoice.points);
+          onComplete(totalPoints);
         }
       }
     }
